@@ -1,1 +1,74 @@
-<p>login works!</p>
+
+
+		<div class="d-flex justify-content-center h-100">
+			<div class="user_card">
+				<!-- <div class="d-flex justify-content-center">
+					<div class="brand_logo_container">
+                        <img src="./assets/logoIA.jpg" class="brand_logo" alt="Logo">
+					</div>
+				</div> -->
+				<div class="d-flex justify-content-center form_container">
+					<form (ngSubmit)="onSubmit(login,DatosIncorrectos);" >
+						<div class="input-group mb-3">
+							<div class="input-group-append">
+								<span class="input-group-text"><i class="fas fa-user"></i></span>
+							</div>
+							<input type="text"  [ngModelOptions]="{standalone: true}"[(ngModel)]="login.loginName" class="form-control input_user" value="" placeholder="nombre de usuario">
+						</div>
+						<div class="input-group mb-2">
+							<div class="input-group-append">
+								<span class="input-group-text"><i class="fas fa-key"></i></span>
+							</div>
+							<input type="password" [ngModelOptions]="{standalone: true}" [(ngModel)]="login.pass"  class="form-control input_pass" value="" placeholder="contraseña">
+						</div>
+            <label  style="color: white;"></label>
+
+							<div class="d-flex justify-content-center mt-3 login_container">
+				 	<button type="submit" name="button" class="btn login_btn" style="color: white;" [disabled]="!isNotModify" >Ingresar</button>
+				   </div>
+					</form>
+				</div>
+
+				<!-- <div class="mt-4">
+					<div class="d-flex justify-content-center links">
+						¿No posees una cuenta? <a href="#" class="ml-2">Registrate</a>
+					</div>
+					<div class="d-flex justify-content-center links">
+						<a href="#">¿Olvido su contraseña?</a>
+					</div>
+				</div> -->
+			</div>
+
+      <!-- <ng-template #DatosIncorrectos let-modal>
+        <div class="modal-content">
+          <div class="modal-header">
+            <h3 class="modal-title"  id="exampleModalLabel" >Error</h3>
+
+            <button type="button" class="close" data-dismiss="modal" (click)="modal.dismiss('Cross click')" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div  class="modal-body">
+            <span>Datos Incorrectos</span>
+          </div>
+
+        </div>
+      </ng-template> -->
+
+      <ng-template #DatosIncorrectos let-modal>
+      <div class="alert-error" ng-reflect-ng-class="[object Object]">
+        <div class="modal-header">
+          <h4 class="modal-title">ERROR</h4>
+        </div><div class="modal-body"><div>
+          <div>Datos Incorrectos.</div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button appautofocus="" class="btn" type="button" (click)="modal.dismiss('Cross click')">OK</button>
+      </div>
+
+    </div>
+  </ng-template>
+		</div>
+
+
