@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Login } from "./../../models/login";
+import { AuthService } from "./../../services/auth.service";
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -9,7 +10,7 @@ export class LoginComponent implements OnInit {
 
   login!: Login;
 
-  constructor() { 
+  constructor(private auth:AuthService) { 
     this.login = new Login();
   }
 
@@ -18,7 +19,7 @@ export class LoginComponent implements OnInit {
 
   onSubmit(login: Login, modal:any){
     console.log(login);
-    
+    this.auth.login(login,modal);
   }
 
   public get isNotModify(): boolean {
